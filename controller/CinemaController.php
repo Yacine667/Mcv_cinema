@@ -15,6 +15,25 @@ class CinemaController {
             SELECT titre, annee_sortie_fr FROM film
         ");
 
+        
+
+
         require "view/listFilms.php";
     }
+
+    public function listGenre() {
+
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->query("
+            SELECT libelle FROM genre
+        ");
+
+        
+
+
+        require "view/listGenre.php";
+    }
+
+
+    
 }
