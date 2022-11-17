@@ -9,11 +9,13 @@
 </head>
 
 <nav>
+
     <a href="index.php?action=listFilms"> Liste Des Films</a>
     <a href="index.php?action=listGenre"> Liste Des Genres</a>
     <a href="index.php?action=listActors"> Liste Des Acteurs</a>
     <a href="index.php?action=listReal"> Liste Des Réalisateurs</a>
     <a href="index.php?action=listRole"> Liste Des Rôles</a>
+
 </nav>
 
 <body>

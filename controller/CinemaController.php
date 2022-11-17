@@ -63,6 +63,18 @@ class CinemaController {
         require "view/listRole.php";
     }
 
+    public function detActor($id) {
+
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare("
+        SELECT * FROM acteur WHERE id_acteur = :id
+        ");
+        $requete->execute(["id"=> $id]);        
+
+
+        require "view/detActor.php";
+    }
+
 
     
 }
