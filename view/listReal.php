@@ -13,12 +13,12 @@
     </thead>
     <tbody>
         <?php
-            foreach($requete->fetchAll() as $actor) { ?>
+            foreach($requete->fetchAll() as $real) { ?>
                 <tr>
-                    <td><?= $actor["nom_personne"] ?></td>
-                    <td><?= $actor["prenom_personne"] ?></td>
-                    <td><?= $actor["date_naissance"] ?></td>
-                    <td><?= $actor["sexe"] ?></td>
+                <td><a href="index.php?action=detReal&id=<?= $real['id_realisateur']?>"><?=$real["nom_personnage"] ?></td>
+                    <td><?= $real["prenom_personnage"] ?></td>
+                    <td><?= $real["date_naissance"] ?></td>
+                    <td><?= $real["sexe"] ?></td>
                 </tr>
             <?php } ?>
     </tbody>
