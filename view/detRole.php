@@ -23,8 +23,8 @@
 
     <?php
     
-    $titre = "informations sur le genre";
-    $titre_secondaire = "informations du genre";
+    $titre = "Informations sur le rôle";
+    $titre_secondaire = "Informations du rôle";
     $contenu = ob_get_clean();
 
     require "view/template.php";

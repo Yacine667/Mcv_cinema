@@ -31,7 +31,7 @@
   
     $titre = "informations réalisateur";
     $titre_secondaire = "informations du realisateur";
-
+    $contenu = ob_get_clean();
     require "view/template.php";
 
     ?> 

@@ -5,14 +5,13 @@ use Model\Connect;
 
 class CinemaController {
 
-    /**
-     * Lister les films
-     */
+
     public function listFilms() {
 
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
-            SELECT titre, annee_sortie_fr FROM film
+            SELECT titre, annee_sortie_fr, id_film
+            FROM film
         ");      
 
 
@@ -23,7 +22,8 @@ class CinemaController {
 
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
-            SELECT libelle FROM genre
+            SELECT libelle, id_genre
+            FROM genre
         ");        
 
 
@@ -34,7 +34,9 @@ class CinemaController {
 
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
-        SELECT nom_personnage,prenom_personnage,date_naissance,sexe FROM personnage INNER JOIN acteur ON personnage.id_personnage = acteur.id_personnage
+        SELECT nom_personnage,prenom_personnage,date_naissance,sexe, id_acteur 
+        FROM personnage 
+        INNER JOIN acteur ON personnage.id_personnage = acteur.id_personnage
         ");        
 
 
@@ -45,7 +47,9 @@ class CinemaController {
 
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
-        SELECT nom_personnage,prenom_personnage,date_naissance,sexe FROM personnage INNER JOIN realisateur ON personnage.id_personnage = realisateur.id_personnage
+        SELECT nom_personnage,prenom_personnage,date_naissance,sexe, id_realisateur 
+        FROM personnage 
+        INNER JOIN realisateur ON personnage.id_personnage = realisateur.id_personnage
         ");        
 
 
@@ -56,7 +60,8 @@ class CinemaController {
 
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
-        SELECT nom_role FROM role
+        SELECT nom_role, id_role
+        FROM role
         ");        
 
         require "view/listRole.php";
@@ -116,7 +121,7 @@ class CinemaController {
         $requete = $pdo->prepare("
             SELECT nom_role,nom_personnage, prenom_personnage, titre, id_acteur
             FROM role
-            NATURAL JOIN personne
+            NATURAL JOIN personnage
             NATURAL JOIN acteur
             NATURAL JOIN film
             NATURAL JOIN jouer
@@ -124,7 +129,6 @@ class CinemaController {
         ");
         $requete->execute(["id"=> $id]);
 
-        // On relie à la vue qui nous intéresse
         require "view/detRole.php";
     }
 
