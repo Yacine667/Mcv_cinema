@@ -10,11 +10,20 @@
 
 <nav>
 
-    <a href="index.php?action=listFilms"> Liste Des Films</a>
-    <a href="index.php?action=listGenre"> Liste Des Genres</a>
-    <a href="index.php?action=listActors"> Liste Des Acteurs</a>
-    <a href="index.php?action=listReal"> Liste Des Réalisateurs</a>
-    <a href="index.php?action=listRole"> Liste Des Rôles</a>
+    <ul>
+            <li><a href="index.php?action=listFilms"> Liste Des Films</a></li>
+            <li><a href="index.php?action=listGenre"> Liste Des Genres</a></li>
+            <li><a href="index.php?action=listActors"> Liste Des Acteurs</a></li>
+            <li><a href="index.php?action=listReal"> Liste Des Réalisateurs</a></li>
+            <li><a href="index.php?action=listRole"> Liste Des Rôles</a></li>
+        </ul>
+        <ul>
+            <li><a href="index.php?action=formAddActor">Ajouter Acteur</a></li>
+            <li><a href="index.php?action=formatAjoutRealisateur">Ajouter Réalisateur</a></li>
+            <li><a href="index.php?action=formAjoutFilm">Ajouter Film</a></li>
+            <li><a href="index.php?action=formatAjoutGenre">Ajouter Genre</a></li>
+            <li><a href="index.php?action=ajouRole">Ajouter Role</a></li>
+        </ul>
 
 </nav>
 

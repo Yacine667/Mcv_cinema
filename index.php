@@ -29,6 +29,14 @@ if(isset($_GET["action"])) {
         case "listRole" : $ctrlCinema->listRole(); break;
         case "detRole" : $ctrlCinema->detRole($id); break;
 
+        case 'formAddActor':
+            $ctrlCinema->formAddActor();
+            break;
+        case 'addActor':
+            $ctrlCinema->addPersonne($nom_personnage, $prenom_personnage, $date_naissance, $sexe);
+            $ctrlCinema->addActor();
+            break;
+
     }
 }
 

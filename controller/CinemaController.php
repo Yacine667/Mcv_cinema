@@ -147,5 +147,30 @@ class CinemaController {
         require "view/detReal.php";
     }
 
+    public function formAddActor()
+    {
+        require 'view/addActor.php';
+    }
+
+    public function addPersonne($nom_personnage, $prenom_personnage, $date_naissance, $sexe)
+    {
+        $pdo = Connect::seConnecter();
+        $requetePersonne = $pdo->prepare("INSERT INTO personnage VALUES('',:nom_personnage,:prenom_personnage,:date_naissance,:sexe)");
+        $requetePersonne->execute([
+            "nom_personnage" => $nom_personnage,
+            "prenom_personnage" => $prenom_personnage,
+            "date_naissance" => $date_naissance,
+            "sexe" => $sexe
+        ]);
+        // require 'view/addActor.php';
+    }
+
+    public function addActor()
+    {
+        $pdo = Connect::seConnecter();
+        $requetePersonne = $pdo->query("INSERT INTO acteur(id_personne) SELECT MAX(id_personne) FROM personne");
+        require 'view/addActor.php';
+    }
+
     
 }
