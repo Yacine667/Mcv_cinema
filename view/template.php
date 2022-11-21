@@ -19,11 +19,10 @@
         </ul>
         <ul>
             <li><a href="index.php?action=formAddActor">Ajouter Acteur</a></li>
-            <li><a href="index.php?action=formatAjoutRealisateur">Ajouter Réalisateur</a></li>
-            <li><a href="index.php?action=formAjoutFilm">Ajouter Film</a></li>
-            <li><a href="index.php?action=formatAjoutGenre">Ajouter Genre</a></li>
-            <li><a href="index.php?action=ajouRole">Ajouter Role</a></li>
-        </ul>
+            <li><a href="index.php?action=formAddReal">Ajouter Réalisateur</a></li>
+            <li><a href="index.php?action=formAddFilm">Ajouter Film</a></li>
+            <li><a href="index.php?action=formAddGenre">Ajouter Genre</a></li>
+
 
 </nav>
 

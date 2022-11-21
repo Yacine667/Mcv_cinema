@@ -37,7 +37,31 @@ if(isset($_GET["action"])) {
             $ctrlCinema->addActor();
             break;
 
+        case 'formAddReal':
+            $ctrlCinema->formAddReal();
+            break;
+        case 'ajoutRealisateur':
+            $ctrlCinema->addPersonne($nom_personnage, $prenom_personnage, $date_naissance, $sexe);
+            $ctrlCinema->addReal();
+            break;
+
+        case 'formAddGenre':
+            $ctrlCinema->formAddGenre();
+            break;
+        case 'addGenre':
+            $ctrlCinema->addGenre($libelle);
+            break;
+
+        case 'formAddFilm':
+            $ctrlCinema->formAddFilm();
+            break;
+        case 'ajoutFilm':
+            $ctrlCinema->addFilm($titre, $annee_sortie_fr, $duree, $synopsis, $realisateur);
+            $ctrlCinema->choixGenre($genre);
+            break;
+
     }
+
 }
 
 ?>

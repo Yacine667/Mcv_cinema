@@ -3,7 +3,7 @@
     <input type="text" class="form-control" name="action" value="addGenre" readonly hidden>
     <div class="form-group">
         <label for="nomInput">Libellé</label>
-        <input type="text" class="form-control" id="nomInput" placeholder="Ex : Drame" name="libelle" required>
+        <input type="text" class="form-control" id="nomInput" placeholder="Ex : Comédie, Thriller ..." name="libelle" required>
     </div>
     <button type="submit" class="btn btn-primary">Ajouter</button>
 </form>

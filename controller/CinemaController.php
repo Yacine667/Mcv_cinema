@@ -162,15 +162,67 @@ class CinemaController {
             "date_naissance" => $date_naissance,
             "sexe" => $sexe
         ]);
-        // require 'view/addActor.php';
+
     }
 
     public function addActor()
     {
         $pdo = Connect::seConnecter();
-        $requetePersonne = $pdo->query("INSERT INTO acteur(id_personne) SELECT MAX(id_personne) FROM personne");
+        $requetePersonne = $pdo->query("INSERT INTO acteur(id_personnage) SELECT MAX(id_personnage) FROM personne");
         require 'view/addActor.php';
     }
 
-    
+    public function formAddReal()
+    {
+        require 'view/addReal.php';
+    }
+
+    public function addReal()
+    {
+        $pdo = Connect::seConnecter();
+        $requetePersonne = $pdo->query("INSERT INTO realisateur(id_personnage) SELECT MAX(id_personnage) FROM personnage");
+        require 'view/addReal.php';
+    }
+
+    public function formAddGenre()
+    {
+        require 'view/addGenre.php';
+    }
+
+    public function addGenre($libelle)
+    {
+        $pdo = Connect::seConnecter();
+        $requeteGenre = $pdo->prepare("INSERT INTO genre VALUES('',:libelle)");
+        $requeteGenre->execute(['libelle' => $libelle]);
+        require 'view/addGenre.php';
+    }
+
+    public function formAddFilm()
+    {
+        require 'view/addFilm.php';
+    }
+
+    public function addFilm($titre, $annee_sortie_fr, $duree, $synopsis, $realisateur)
+    {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare("INSERT INTO film VALUES('',:titre,:annee_sortie_fr,:duree,:synopsis,:id_realisateur)");
+        $requete->execute([
+            'titre' => $titre,
+            'annee_sortie_fr' => $annee_sortie_fr,
+            'duree' => $duree,
+            'synopsis' => $synopsis,
+            'id_realisateur' => $realisateur
+        ]);
+        require 'view/addFilm.php';
+    }
+    public function choixGenre($genre)
+    {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare("INSERT INTO posseder (id_film,id_genre) VALUES((SELECT MAX(id_film) FROM film),:genre)");
+        $requete->execute(['genre' => $genre]);
+    }
+
+
 }
+
+    
