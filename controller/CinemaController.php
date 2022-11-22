@@ -218,8 +218,20 @@ class CinemaController {
         require 'view/addFilm.php';
     }
 
-    public function addFilm($titre, $annee_sortie_fr, $duree, $synopsis, $realisateur)
+    public function addFilm()
     {
+        
+        $titre = filter_input(INPUT_POST,'titre',FILTER_SANITIZE_SPECIAL_CHARS);
+        
+        $annee_sortie_fr = filter_input(INPUT_POST,'annee_sortie_fr',FILTER_SANITIZE_NUMBER_INT);
+        
+
+        $duree = filter_input(INPUT_POST,'duree',FILTER_SANITIZE_NUMBER_INT);
+
+        $synopsis = filter_input(INPUT_POST,'synopsis',FILTER_SANITIZE_SPECIAL_CHARS);
+
+        $realisateur = $synopsis = filter_input(INPUT_POST,'realisateur',FILTER_SANITIZE_SPECIAL_CHARS);
+        
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("INSERT INTO film (titre,annee_sortie_fr,duree,synopsis,id_realisateur)
         VALUES(:titre,:annee_sortie_fr,:duree,:synopsis,:id_realisateur)");
@@ -228,8 +240,9 @@ class CinemaController {
             'annee_sortie_fr' => $annee_sortie_fr,
             'duree' => $duree,
             'synopsis' => $synopsis,
-            'id_realisateur' => $realisateur
+            'id_realisateur' => $realisateur            
         ]);
+        
         header("location:index.php?action=formAddFilm");
     }
     public function choixGenre($genre)

@@ -2,7 +2,7 @@
 
 ob_start()
 ?>
-<form action="index.php" method="GET">
+<form action="index.php?action=addFilm" method="POST">
     <input type="text" class="form-control" name="action" value="addFilm" readonly hidden>
     <div class="form-group">
         <label for="nomInput">Titre</label>
@@ -10,7 +10,7 @@ ob_start()
     </div>
     <div class="form-group">
         <label for="dateInput">Date de sortie</label>
-        <input type="date" class="form-control" id="dateInput" name="annee_sortie_fr" required>
+        <input type="text" class="form-control" id="dateInput" name="annee_sortie_fr" required>
     </div>
     <div class="form-group">
         <label for="timeInput">Duree en minute</label>
@@ -18,7 +18,7 @@ ob_start()
     </div>
     <div class="form-group">
         <label for="synopsisInput">Resumée</label>
-        <textarea type="number" class="form-control" id="synopsisInput" name="synopsisInput" required></textarea>
+        <textarea type="number" class="form-control" id="synopsisInput" name="synopsis" required></textarea>
     </div>
     <div class="form-group">
         <label for="selReal">Realisateur:</label>

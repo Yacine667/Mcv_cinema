@@ -1,7 +1,5 @@
 <?php
 
-$id = (isset($_GET["id"])) ? $_GET["id"] : null;
-
 $nom_personnage = (isset($_GET["nom_personnage"])) ? $_GET["nom_personnage"] : null;
 
 $prenom_personnage = (isset($_GET["prenom_personnage"])) ? $_GET["prenom_personnage"] : null;
@@ -12,7 +10,7 @@ $sexe = (isset($_GET["sexe"])) ? $_GET["sexe"] : null;
 
 $libelle = (isset($_GET["libelle"])) ? $_GET["libelle"] : null;
 
-$titre = (isset($_GET["titre"])) ? $_GET["titre"] : null;
+/*$titre = (isset($_GET["titre"])) ? $_GET["titre"] : null;
 
 $annee_sortie_fr = (isset($_GET["annee_sortie_fr"])) ? $_GET["annee_sortie_fr"] : null;
 
@@ -20,7 +18,7 @@ $duree = (isset($_GET["duree"])) ? $_GET["duree"] : null;
 
 $synopsis = (isset($_GET["synopsis"])) ? $_GET["synopsis"] : null;
 
-$realisateur = (isset($_GET["realisateur"])) ? $_GET["realisateur"] : null;
+$realisateur = (isset($_GET["realisateur"])) ? $_GET["realisateur"] : null;*/
 
 $genre = (isset($_GET["genre"])) ? $_GET["genre"] : null;
 
@@ -80,8 +78,8 @@ if(isset($_GET["action"])) {
             $ctrlCinema->listRealisateur();
             break;
         case 'addFilm':
-            $ctrlCinema->addFilm($titre, $annee_sortie_fr, $duree, $synopsis, $realisateur);
-            $ctrlCinema->choixGenre($genre);
+            
+            $ctrlCinema->addFilm();
             break;
 
     }
