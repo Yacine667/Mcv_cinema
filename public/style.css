@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.barNav {
+
+    background-color: aquamarine;
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+
+    font-size: 8em;
+    margin: 2%;
+}
+
+.barNav1 {
+
+    height: 20%;
+    width: 20%;
+    background-color: aqua;
+    margin: 2%;
+
+ 
+}
+
+.barNav2{
+
+    height: 20%;
+    width: 20%;
+    background-color: blueviolet;
+    margin: 2%;
+}
+
+.list {
+
+    font-size: larger;
+    text-decoration: none;
+    list-style-type: none;
+
+}
+
+#contenu {
+
+
+
+}

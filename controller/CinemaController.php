@@ -177,7 +177,6 @@ class CinemaController {
         $date_naissance = filter_input(INPUT_POST,'date_naissance',FILTER_SANITIZE_SPECIAL_CHARS);
 
         $sexe = filter_input(INPUT_POST,'sexe',FILTER_SANITIZE_SPECIAL_CHARS);;
-
         
         $pdo = Connect::seConnecter();
         $requetePersonnage = $pdo->prepare("INSERT INTO personnage (nom_personnage, prenom_personnage, date_naissance, sexe)  VALUES(:nom_personnage,:prenom_personnage,:date_naissance,:sexe)");
@@ -226,6 +225,7 @@ class CinemaController {
         $pdo = Connect::seConnecter();
         $requeteGenre = $pdo->prepare("INSERT INTO genre (libelle) VALUES(:libelle)");
         $requeteGenre->execute(['libelle' => $libelle]);
+
         header("location:index.php?action=formAddGenre");
     }
 
@@ -239,8 +239,7 @@ class CinemaController {
         
         $titre = filter_input(INPUT_POST,'titre',FILTER_SANITIZE_SPECIAL_CHARS);
         
-        $annee_sortie_fr = filter_input(INPUT_POST,'annee_sortie_fr',FILTER_SANITIZE_NUMBER_INT);
-        
+        $annee_sortie_fr = filter_input(INPUT_POST,'annee_sortie_fr',FILTER_SANITIZE_NUMBER_INT);        
 
         $duree = filter_input(INPUT_POST,'duree',FILTER_SANITIZE_NUMBER_INT);
 

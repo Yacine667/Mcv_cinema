@@ -6,7 +6,8 @@
         <thead>
             <tr>
                 <th>FILM</th>
-                <th>Acteur</th>
+                <th>Nom acteur</th>
+                <th>Prénom acteur</th>
             </tr>
         </thead>
         <tbody>

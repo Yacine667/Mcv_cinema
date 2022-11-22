@@ -2,18 +2,23 @@
 
 <p>Informations sur le film</p>
 
+
     <table>
         <thead>
             <tr>
-                <th>TITRE</th>
-                <th>DATE DE SORTIE</th>
+               
+                <th>Date de sortie</th>
+                <th>Durée</th>
+                <th>Nom Acteur</th>
+                <th>Prénom Acteur</th>
+                <th>Rôle</th>
             </tr>
         </thead>
         <tbody>
             <?php
                 foreach($requete->fetchAll() as $film) { ?>
                     <tr>
-                        <td><?=$film["titre"] ?></td>
+         
                         <td><?=$film["annee_sortie_fr"] ?></td>
                         <td><?=$film["duree"] ?></td>
                         <td><?=$film["nom_personnage"] ?></td>
@@ -26,8 +31,8 @@
 
     <?php
   
-    $titre = "Liste des films";
-    $titre_secondaire = "Liste des films";
+    $titre = $film["titre"];
+    $titre_secondaire = $film["titre"];
     $contenu = ob_get_clean();
      require "view/template.php";
 

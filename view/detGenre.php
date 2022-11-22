@@ -20,7 +20,7 @@
 
     <?php
 
-    $titre = "informations sur le genre";
+    $titre = $genre["libelle"];
     $titre_secondaire = "informations du genre";
     $contenu = ob_get_clean();
      require "view/template.php";
