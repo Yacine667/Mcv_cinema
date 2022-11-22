@@ -24,8 +24,8 @@ ob_start()
         <label for="selReal">Realisateur:</label>
         <select class="form-control" id="selReal" name="realisateur">
             <?php
-            foreach ($requete as $realisateur) { ?>
-                <option value="<?= $realisateur['id_realisateur'] ?>"><?php echo $realisateur['nom_personnage'] ?></option>
+            foreach ($requete as $real) { ?>
+                <option value="<?= $real['id_realisateur'] ?>"><?php echo $real['nom_personnage'] ?></option>
             <?php } ?>
         </select>
     </div>
