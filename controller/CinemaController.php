@@ -168,10 +168,19 @@ class CinemaController {
         require 'view/addActor.php';
     }
 
-    public function addPersonnage($nom_personnage, $prenom_personnage, $date_naissance, $sexe)
+    public function addPersonnage()
     {
+        $nom_personnage = filter_input(INPUT_POST,'nom_personnage',FILTER_SANITIZE_SPECIAL_CHARS);
+
+        $prenom_personnage = filter_input(INPUT_POST,'prenom_personnage',FILTER_SANITIZE_SPECIAL_CHARS);
+
+        $date_naissance = filter_input(INPUT_POST,'date_naissance',FILTER_SANITIZE_SPECIAL_CHARS);
+
+        $sexe = filter_input(INPUT_POST,'sexe',FILTER_SANITIZE_SPECIAL_CHARS);;
+
+        
         $pdo = Connect::seConnecter();
-        $requetePersonnage = $pdo->prepare("INSERT INTO personnage VALUES('',:nom_personnage,:prenom_personnage,:date_naissance,:sexe)");
+        $requetePersonnage = $pdo->prepare("INSERT INTO personnage (nom_personnage, prenom_personnage, date_naissance, sexe)  VALUES(:nom_personnage,:prenom_personnage,:date_naissance,:sexe)");
         $requetePersonnage->execute([
             "nom_personnage" => $nom_personnage,
             "prenom_personnage" => $prenom_personnage,
@@ -184,7 +193,9 @@ class CinemaController {
     public function addActor()
     {
         $pdo = Connect::seConnecter();
-        $requetePersonnage = $pdo->query("INSERT INTO acteur(id_personnage) SELECT MAX(id_personnage) FROM personnage");
+        $requetePersonnage = $pdo->query("INSERT INTO acteur(id_personnage) 
+        SELECT MAX(id_personnage) FROM personnage");
+
         header("location:index.php?action=formAddActor");
     }
 
@@ -196,7 +207,9 @@ class CinemaController {
     public function addReal()
     {
         $pdo = Connect::seConnecter();
-        $requetePersonnage = $pdo->query("INSERT INTO realisateur(id_personnage) SELECT MAX(id_personnage) FROM personnage");
+        $requetePersonnage = $pdo->query("INSERT INTO realisateur(id_personnage) 
+        SELECT MAX(id_personnage) FROM personnage");
+
         header("location:index.php?action=formAddReal");
     }
 
@@ -233,7 +246,7 @@ class CinemaController {
 
         $synopsis = filter_input(INPUT_POST,'synopsis',FILTER_SANITIZE_SPECIAL_CHARS);
 
-        $realisateur = $synopsis = filter_input(INPUT_POST,'realisateur',FILTER_SANITIZE_SPECIAL_CHARS);
+        $realisateur = filter_input(INPUT_POST,'realisateur',FILTER_SANITIZE_SPECIAL_CHARS);
         
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("INSERT INTO film (titre,annee_sortie_fr,duree,synopsis,id_realisateur)
@@ -251,7 +264,8 @@ class CinemaController {
     public function choixGenre($genre)
     {
         $pdo = Connect::seConnecter();
-        $requete = $pdo->prepare("INSERT INTO posseder (id_film,id_genre) VALUES((SELECT MAX(id_film) FROM film),:genre)");
+        $requete = $pdo->prepare("INSERT INTO posseder (id_film,id_genre) 
+        VALUES((SELECT MAX(id_film) FROM film),:genre)");
         $requete->execute(['genre' => $genre]);
     }
 

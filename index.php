@@ -1,12 +1,12 @@
 <?php
 
-$nom_personnage = (isset($_GET["nom_personnage"])) ? $_GET["nom_personnage"] : null;
+//$nom_personnage = (isset($_GET["nom_personnage"])) ? $_GET["nom_personnage"] : null;
 
-$prenom_personnage = (isset($_GET["prenom_personnage"])) ? $_GET["prenom_personnage"] : null;
+//$prenom_personnage = (isset($_GET["prenom_personnage"])) ? $_GET["prenom_personnage"] : null;
 
-$date_naissance = (isset($_GET["date_naissance"])) ? $_GET["date_naissance"] : null;
+//$date_naissance = (isset($_GET["date_naissance"])) ? $_GET["date_naissance"] : null;
 
-$sexe = (isset($_GET["sexe"])) ? $_GET["sexe"] : null;
+//$sexe = (isset($_GET["sexe"])) ? $_GET["sexe"] : null;
 
 //$libelle = (isset($_GET["libelle"])) ? $_GET["libelle"] : null;
 
@@ -55,15 +55,15 @@ if(isset($_GET["action"])) {
             $ctrlCinema->formAddActor();
             break;
         case 'addActor':
-            $ctrlCinema->addPersonnage($nom_personnage, $prenom_personnage, $date_naissance, $sexe);
+            $ctrlCinema->addPersonnage();
             $ctrlCinema->addActor();
             break;
 
         case 'formAddReal':
             $ctrlCinema->formAddReal();
             break;
-        case 'ajoutRealisateur':
-            $ctrlCinema->addPersonnage($nom_personnage, $prenom_personnage, $date_naissance, $sexe);
+        case 'addReal':
+            $ctrlCinema->addPersonnage();
             $ctrlCinema->addReal();
             break;
 
