@@ -25,8 +25,8 @@
 
 <?php
 
-$titre = "Liste des acteurs";
-$titre_secondaire = "Liste des acteurs";
+$titre = $actor["nom_personnage"];
+$titre_secondaire = $actor["nom_personnage"];
 $contenu = ob_get_clean();
 
 require "view/template.php";

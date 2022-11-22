@@ -45,6 +45,9 @@ h1 {
 
 #contenu {
 
-
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 
 }
