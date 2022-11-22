@@ -205,10 +205,13 @@ class CinemaController {
         require 'view/addGenre.php';
     }
 
-    public function addGenre($libelle)
+    public function addGenre()
     {
+
+        $libelle = filter_input (INPUT_POST,'libelle',FILTER_SANITIZE_SPECIAL_CHARS);
+
         $pdo = Connect::seConnecter();
-        $requeteGenre = $pdo->prepare("INSERT INTO genre VALUES('',:libelle)");
+        $requeteGenre = $pdo->prepare("INSERT INTO genre (libelle) VALUES(:libelle)");
         $requeteGenre->execute(['libelle' => $libelle]);
         header("location:index.php?action=formAddGenre");
     }

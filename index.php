@@ -8,7 +8,7 @@ $date_naissance = (isset($_GET["date_naissance"])) ? $_GET["date_naissance"] : n
 
 $sexe = (isset($_GET["sexe"])) ? $_GET["sexe"] : null;
 
-$libelle = (isset($_GET["libelle"])) ? $_GET["libelle"] : null;
+//$libelle = (isset($_GET["libelle"])) ? $_GET["libelle"] : null;
 
 /*$titre = (isset($_GET["titre"])) ? $_GET["titre"] : null;
 
@@ -71,14 +71,13 @@ if(isset($_GET["action"])) {
             $ctrlCinema->formAddGenre();
             break;
         case 'addGenre':
-            $ctrlCinema->addGenre($libelle);
+            $ctrlCinema->addGenre();
             break;
 
         case 'formAddFilm':
             $ctrlCinema->listRealisateur();
             break;
-        case 'addFilm':
-            
+        case 'addFilm':            
             $ctrlCinema->addFilm();
             break;
 

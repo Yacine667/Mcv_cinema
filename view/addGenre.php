@@ -1,5 +1,5 @@
 <?php ob_start() ?>
-<form action="index.php" method="POST">
+<form action="index.php?action=addGenre" method="POST">
     <input type="text" class="form-control" name="action" value="addGenre" readonly hidden>
     <div class="form-group">
         <label for="nomInput">Libellé</label>
