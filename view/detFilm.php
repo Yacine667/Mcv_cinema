@@ -24,6 +24,7 @@
                         <td><?=$film["nom_personnage"] ?></td>
                         <td><?=$film["prenom_personnage"] ?></td>
                         <td><?=$film["nom_role"] ?></td>
+                        <td><img height="100px" src="<?=$film["affiche"] ?>" alt=""></td>
                     </tr>
             <?php } ?>   
         </tbody>

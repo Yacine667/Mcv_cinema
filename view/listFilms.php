@@ -14,7 +14,8 @@
             foreach($requete->fetchAll() as $film) { ?>
                 <tr>
                 <td><a href="index.php?action=detFilm&id=<?= $film['id_film']?>"><?=$film["titre"] ?></a></td>
-                    <td><?= $film["annee_sortie_fr"] ?></td>
+                <td><?= $film["annee_sortie_fr"] ?></td>
+                <td><img height="100px" src="<?=$film["affiche"] ?>" alt=""></td>
                 </tr>
             <?php } ?>
     </tbody>
