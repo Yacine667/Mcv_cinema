@@ -1,17 +1,17 @@
 <?php ob_start(); ?>
 
-<p>Informations sur le film</p>
+<p class="intro">Informations sur le film</p>
 
 
     <table>
         <thead>
             <tr>
                
-                <th>Date de sortie</th>
-                <th>Durée</th>
-                <th>Nom Acteur</th>
-                <th>Prénom Acteur</th>
-                <th>Rôle</th>
+                <th class="column">Date de sortie</th>
+                <th class="column">Durée</th>
+                <th colspan="2" class="column">Acteur</th>
+                
+                <th class="column">Rôle</th>
             </tr>
         </thead>
         <tbody>
@@ -19,12 +19,12 @@
                 foreach($requete->fetchAll() as $film) { ?>
                     <tr>
          
-                        <td><?=$film["annee_sortie_fr"] ?></td>
-                        <td><?=$film["duree"] ?></td>
-                        <td><?=$film["nom_personnage"] ?></td>
-                        <td><?=$film["prenom_personnage"] ?></td>
-                        <td><?=$film["nom_role"] ?></td>
-                        <td><img height="100px" src="<?=$film["affiche"] ?>" alt=""></td>
+                        <td class="lineMovie"><?=$film["annee_sortie_fr"] ?></td>
+                        <td class="lineMovie"><?=$film["duree"] ?></td>
+                        <td class="lineMovie"><?=$film["nom_personnage"] ?></td>
+                        <td class="lineMovie"><?=$film["prenom_personnage"] ?></td>
+                        <td class="lineMovie"><?=$film["nom_role"] ?></td>
+                        <td class="lineMovie"><img src="<?=$film["affiche"] ?>" alt=""></td>
                     </tr>
             <?php } ?>   
         </tbody>
