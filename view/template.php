@@ -9,43 +9,54 @@
     <title><?= $titre ?></title>
 </head>
 
-<div class="barNav">
-    <div class="barNav1">
-        <nav>
 
-            <ul>
-                    <li class="list"><a class="list"href="index.php?action=listFilms"> Liste Des Films</a></li>
-                    <li class="list"><a class="list" href="index.php?action=listGenre"> Liste Des Genres</a></li>
-                    <li class="list"><a class="list" href="index.php?action=listActors"> Liste Des Acteurs</a></li>
-                    <li class="list"><a class="list" href="index.php?action=listReal"> Liste Des Réalisateurs</a></li>
-                    <li class="list"><a class="list" href="index.php?action=listRole"> Liste Des Rôles</a></li>
-            </ul>
+        <nav class="nav1">
+            
+            <a href="index.php?action=formAddActor">Ajouter Acteur</a>
+            <a href="index.php?action=formAddReal">Ajouter Réalisateur</a>
+            <a href="index.php?action=formAddFilm">Ajouter Film</a>
+            <a href="index.php?action=formAddGenre">Ajouter Genre</a>
+            
+        </nav>       
 
-    </div>
+    <h1> PDO Cinema</h1>
 
-    <h1 class="uk-heading-divider"> PDO Cinema</h1>
+    <button type="button" arria-label="toggleCurtainNav1" class="nav_toggler1">
+            <span class="line l1"></span>
+            <span class="line l2"></span>
+            <span class="line l3"></span>
+        </button>
 
-    <div class="barNav2">
 
-            <ul>
-                    <li class="list"><a class="list" href="index.php?action=formAddActor">Ajouter Acteur</a></li>
-                    <li class="list"><a class="list" href="index.php?action=formAddReal">Ajouter Réalisateur</a></li>
-                    <li class="list"><a class="list" href="index.php?action=formAddFilm">Ajouter Film</a></li>
-                    <li class="list"><a class="list" href="index.php?action=formAddGenre">Ajouter Genre</a></li>
-            </ul>
-
+        <nav class="nav2">
+            
+            <a href="index.php?action=listFilms"> Liste Des Films</a>
+            <a href="index.php?action=listGenre"> Liste Des Genres</a>
+            <a href="index.php?action=listActors"> Liste Des Acteurs</a>
+            <a href="index.php?action=listReal"> Liste Des Réalisateurs</a>
+            <a href="index.php?action=listRole"> Liste Des Rôles</a>
+            
         </nav>
-    </div>
-</div>
+
+        <button type="button" arria-label="toggleCurtainNav" class="nav_toggler">
+            <span class="line l1"></span>
+            <span class="line l2"></span>
+            <span class="line l3"></span>
+        </button>
+        
+
+
 <body>
     <div id="wrapper" class="uk-container uk-container-expand">
         <main>
             <div id="contenu">                
-                <h2 class="uk-heading-bullet"><?= $titre_secondaire ?></h2>
+                <h2><?= $titre_secondaire ?></h2>
                 <?= $contenu ?>
             </div>
         </main>
     </div>
-    
+
+
+<script src="public/script.js"></script>
 </body>
 </html>

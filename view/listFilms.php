@@ -2,7 +2,7 @@
 
 <p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount() ?> films</p>
 
-<table class="uk-table uk-table-stripped">
+<table class="uk">
     <thead>
         <tr>
             <th>Titre</th>
