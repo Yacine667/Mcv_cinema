@@ -2,7 +2,7 @@
 
 <p class="intro">Ce réalisateur a réalisé <?= $requete->rowCount() ?> films</p>
 
-    <table>
+    <table class="movie">
         <thead>
             <tr>
                 <th class="column">Sexe</th>
@@ -17,6 +17,7 @@
                         <td class="lineMovie"><?=$real["sexe"] ?></td>
                         <td class="lineMovie"><?=$real["date_naissance"] ?></td>
                         <td class="lineMovie"><?=$real["titre"] ?></td>
+                        <td class="lineMovie"><img src="<?=$real["photo_personnage"] ?>" alt=""></td>
                     </tr>
             <?php } ?>   
         </tbody>

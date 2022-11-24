@@ -34,7 +34,7 @@ class CinemaController {
 
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
-        SELECT nom_personnage,prenom_personnage,date_naissance,sexe, id_acteur 
+        SELECT nom_personnage,prenom_personnage,date_naissance,sexe, id_acteur, photo_personnage
         FROM personnage 
         INNER JOIN acteur ON personnage.id_personnage = acteur.id_personnage
         ");        
@@ -47,7 +47,7 @@ class CinemaController {
 
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
-        SELECT nom_personnage,prenom_personnage,date_naissance,sexe, id_realisateur 
+        SELECT nom_personnage,prenom_personnage,date_naissance,sexe, id_realisateur, photo_personnage
         FROM personnage 
         INNER JOIN realisateur ON personnage.id_personnage = realisateur.id_personnage
         ");        
@@ -152,7 +152,7 @@ class CinemaController {
 
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
-            SELECT titre, nom_personnage, prenom_personnage, sexe, date_naissance, id_realisateur
+            SELECT titre, nom_personnage, prenom_personnage, sexe, date_naissance, id_realisateur, photo_personnage
             FROM film
             NATURAL JOIN personnage
             NATURAL JOIN realisateur

@@ -19,6 +19,7 @@
                 <td class="lineMovie"><?= $real["prenom_personnage"] ?></td>
                 <td class="lineMovie"><?= $real["date_naissance"] ?></td>
                 <td class="lineMovie"><?= $real["sexe"] ?></td>
+                <td class="lineMovie"><img src="<?=$real["photo_personnage"] ?>" alt=""></td>
                 </tr>
             <?php } ?>
     </tbody>
