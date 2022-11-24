@@ -1,26 +1,44 @@
-<?php ob_start() ?>
+<?php
+
+ ob_start()
+  ?>
+
 <form action="index.php?action=addActor" method="POST">
-    <input type="text" class="form-control"  name="action" value="addActor" readonly hidden>
-    <div class="form-group">
+
+    <input type="text" name="action" value="addActor" readonly hidden>
+
+    <div class="formCel">
+
         <label for="nomInput">Nom de l'acteur</label>
         <input type="text" class="form-control" id="nomInput" placeholder="Entrer Nom" name="nom_personnage" required>
+
     </div>
-    <div class="form-group">
+
+    <div class="formCel">
+
         <label for="prenomInput">Prénom de l'acteur</label>
         <input type="text" class="form-control" id="prenomInput" placeholder="Entrer Prénom" name='prenom_personnage' required>
+
     </div>
-    <div class="form-group">
+
+    <div class="formCel">
+
         <label for="dateInput">Date de naissance</label>
         <input type="date" class="form-control" id="dateInput" name="date_naissance" required>
+
     </div>
-    <div class="form-group">
+
+    <div class="formCel">
+
         <label for="select">Sexe</label>
-        <select id="select" class="custom-select" name="sexe" required>
+        <select class="select" name="sexe" required>
             <option value="">Choisir</option>
             <option value="homme">Homme</option>
             <option value="femme">Femme</option>
         </select>
+
     </div>
+
     <button type="submit" class="btn btn-primary">Ajouter</button>
 </form>
 <?php

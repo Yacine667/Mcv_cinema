@@ -236,11 +236,36 @@ h1 {
 .movie {
 
     z-index: 1;
-background: rgba( 139, 87, 42, 0.1 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 5.5px );
--webkit-backdrop-filter: blur( 5.5px );
-border: 1px solid rgba( 255, 255, 255, 0.18 );
+    background: rgba( 139, 87, 42, 0.1 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 5.5px );
+    -webkit-backdrop-filter: blur( 5.5px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
+.formCel {
+
+    background: rgba( 139, 87, 42, 0.1 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 5.5px );
+    -webkit-backdrop-filter: blur( 5.5px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    width: 500px;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    color: white;
+
+}
+
+.select {
+
+    width: 250px;
+    border-radius: 10%;
+}
+
+.btn {
+
+    margin-left: 200px;
+}
 
