@@ -18,7 +18,7 @@ h1 {
     text-align: center;
     font-size: 8em;
     font-weight: bolder;
-    background: -webkit-linear-gradient(rgb(0, 0, 0), rgb(240, 176, 2));
+    background: -webkit-linear-gradient(rgb(125, 125, 125), rgb(240, 176, 2));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -35,7 +35,7 @@ h1 {
 .nav_toggler {
 
     position: fixed;
-    z-index: 10;
+    z-index: 2;
     top: 20px;
     right: 30px;
     height: 50px;
@@ -46,12 +46,13 @@ h1 {
     justify-content: center;
     align-items: center;
     background: transparent;
+    padding: 10px;
 }
 
 .nav_toggler1 {
 
     position: fixed;
-    z-index: 10;
+    z-index: 2;
     top: 20px;
     left: 30px;
     height: 50px;
@@ -62,30 +63,35 @@ h1 {
     justify-content: center;
     align-items: center;
     background: transparent;
+    padding: 10px;
 }
 
 .line {
 
     position: absolute;
     display: block;
-    width: 50px;
-    height: 4px;
-    background: rgb(255, 255, 255);
+    width: 70px;
+    height: 5px; 
+    border-radius: 50%;   
     transition: transform 0.3s ease-out,
-                opacity 0.1s ease-out;
-    
+                opacity 0.1s ease-out;                
 }
 
 .l1 {
 
-    transform: translateY(-10px);
+    transform: translateY(-10px); 
+    background: rgba(255, 200, 0, 0.817);
+}
 
+.l2 {
+
+    background: rgb(255, 225, 0); 
 }
 
 .l3 {
 
     transform: translateY(10px);
-    
+    background: rgba(255, 204, 0, 0.775);      
 }
 
 .nav_toggler.active .l1 {
@@ -213,10 +219,8 @@ h1 {
     height: 60%;
     width: 60%;
     margin-bottom: 10%;
-    border-radius: 10%;
-    
+    border-radius: 10%;    
 }
-
 
 .intro {
 
@@ -255,7 +259,6 @@ h1 {
     padding: 10px;
     margin: 10px;
     color: white;
-
 }
 
 .select {

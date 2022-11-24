@@ -14,6 +14,7 @@
                 <tr>
                     <td class="lineMovie"><?= $actor["date_naissance"] ?></td>
                     <td class="lineMovie"><?= $actor["sexe"] ?></td>
+                    <td class="lineMovie"><img src="<?=$actor["photo_personnage"] ?>" alt=""></td>
                 </tr>
             <?php } ?>
     </tbody>

@@ -17,6 +17,7 @@
                         <td class="lineMovie"><?=$role["titre"] ?></td>
                         <td class="lineMovie"><?=$role["nom_personnage"] ?></td>
                         <td class="lineMovie"><?=$role["prenom_personnage"] ?></td>
+                        <td class="lineMovie"><img src="<?=$role["photo_role"] ?>" alt=""></td>
                     </tr>
             <?php } ?>   
         </tbody>

@@ -87,7 +87,7 @@ class CinemaController {
 
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
-        SELECT titre, nom_personnage, prenom_personnage, sexe, date_naissance, id_acteur
+        SELECT titre, nom_personnage, prenom_personnage, sexe, date_naissance, id_acteur, photo_personnage
         FROM jouer
         NATURAL JOIN personnage
         NATURAL JOIN acteur
@@ -135,7 +135,7 @@ class CinemaController {
 
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
-            SELECT nom_role,nom_personnage, prenom_personnage, titre, id_acteur
+            SELECT nom_role,nom_personnage, prenom_personnage, titre, id_acteur, photo_role
             FROM role
             NATURAL JOIN personnage
             NATURAL JOIN acteur
