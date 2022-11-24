@@ -1,22 +1,22 @@
 <?php ob_start();?>
 
-<p>Ce role a été joué par <?= $requete->rowCount() ?> acteurs</p>
+<p class="intro">Ce role a été joué par <?= $requete->rowCount() ?> acteurs</p>
 
-    <table>
+    <table class="movie">
         <thead>
             <tr>
-                <th>FILM</th>
-                <th>Nom acteur</th>
-                <th>Prénom acteur</th>
+                <th class="column">FILM</th>
+                <th colspan="2" class="column">Acteur</th>
+                
             </tr>
         </thead>
         <tbody>
             <?php
                 foreach($requete->fetchAll() as $role) { ?>
                     <tr>
-                        <td><?=$role["titre"] ?></td>
-                        <td><?=$role["nom_personnage"] ?></td>
-                        <td><?=$role["prenom_personnage"] ?></td>
+                        <td class="lineMovie"><?=$role["titre"] ?></td>
+                        <td class="lineMovie"><?=$role["nom_personnage"] ?></td>
+                        <td class="lineMovie"><?=$role["prenom_personnage"] ?></td>
                     </tr>
             <?php } ?>   
         </tbody>
@@ -24,8 +24,8 @@
 
     <?php
     
-    $titre = "Informations sur le rôle";
-    $titre_secondaire = "Informations du rôle";
+    $titre = $role["nom_role"];
+    $titre_secondaire = $role["nom_role"];
     $contenu = ob_get_clean();
 
     require "view/template.php";

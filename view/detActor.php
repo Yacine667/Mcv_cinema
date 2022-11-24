@@ -1,23 +1,19 @@
 <?php ob_start(); ?>
 
 
-<table class="uk-table uk-table-stripped">
+<table class="movie">
     <thead>
         <tr>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Date de naissance</th>
-            <th>Sexe</th>
+            <th class="column">Date de naissance</th>
+            <th class="column">Sexe</th>
         </tr>
     </thead>
     <tbody>
         <?php
             foreach($requete->fetchAll() as $actor) { ?>
                 <tr>
-                    <td><?= $actor["nom_personnage"] ?></td>
-                    <td><?= $actor["prenom_personnage"] ?></td>
-                    <td><?= $actor["date_naissance"] ?></td>
-                    <td><?= $actor["sexe"] ?></td>
+                    <td class="lineMovie"><?= $actor["date_naissance"] ?></td>
+                    <td class="lineMovie"><?= $actor["sexe"] ?></td>
                 </tr>
             <?php } ?>
     </tbody>
@@ -25,8 +21,8 @@
 
 <?php
 
-$titre = $actor["nom_personnage"];
-$titre_secondaire = $actor["nom_personnage"];
+$titre = $actor["nom_personnage"]." ".$actor["prenom_personnage"];
+$titre_secondaire = $actor["nom_personnage"]." ".$actor["prenom_personnage"];
 $contenu = ob_get_clean();
 
 require "view/template.php";

@@ -1,26 +1,22 @@
 <?php ob_start();?>
 
-<p>Ce réalisateur a réalisé <?= $requete->rowCount() ?> films</p>
+<p class="intro">Ce réalisateur a réalisé <?= $requete->rowCount() ?> films</p>
 
     <table>
         <thead>
             <tr>
-                <th>NOM</th>
-                <th>PRENOM</th>
-                <th>SEXE</th>
-                <th>NAISSANCE</th>
-                <th>TITRE FILMS</th>
+                <th class="column">Sexe</th>
+                <th class="column">Date de naissance</th>
+                <th class="column">Réalisations</th>
             </tr>
         </thead>
         <tbody>
             <?php
                 foreach($requete->fetchAll() as $real) { ?>
                     <tr>
-                        <td><?=$real["nom_personnage"] ?></td>
-                        <td><?=$real["prenom_personnage"] ?></td>
-                        <td><?=$real["sexe"] ?></td>
-                        <td><?=$real["date_naissance"] ?></td>
-                        <td><?=$real["titre"] ?></td>
+                        <td class="lineMovie"><?=$real["sexe"] ?></td>
+                        <td class="lineMovie"><?=$real["date_naissance"] ?></td>
+                        <td class="lineMovie"><?=$real["titre"] ?></td>
                     </tr>
             <?php } ?>   
         </tbody>
@@ -29,8 +25,8 @@
     <?php
     
   
-    $titre = "informations réalisateur";
-    $titre_secondaire = "informations du realisateur";
+    $titre = $real["nom_personnage"]." ".$real["prenom_personnage"];
+    $titre_secondaire = $real["nom_personnage"]." ".$real["prenom_personnage"];
     $contenu = ob_get_clean();
     require "view/template.php";
 

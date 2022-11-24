@@ -1,18 +1,18 @@
 <?php ob_start();?>
 
-<p>Ce genre a <?= $requete->rowCount() ?> films</p>
+<p class="intro">Ce genre a <?= $requete->rowCount() ?> films</p>
 
-    <table>
+    <table class="movie">
         <thead>
             <tr>
-                <th>FILMS</th>
+                <th class="column">Films</th>
             </tr>
         </thead>
         <tbody>
             <?php
                 foreach($requete->fetchAll() as $genre) { ?>
                     <tr>
-                        <td><?=$genre["titre"] ?></td>
+                        <td class="lineMovie"><?=$genre["titre"] ?></td>
                     </tr>
             <?php } ?>   
         </tbody>
@@ -21,7 +21,7 @@
     <?php
 
     $titre = $genre["libelle"];
-    $titre_secondaire = "informations du genre";
+    $titre_secondaire = $genre["libelle"];
     $contenu = ob_get_clean();
      require "view/template.php";
 

@@ -1,18 +1,18 @@
 <?php ob_start(); ?>
 
-<p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount() ?> genres</p>
+<p class="intro">Il y a <?= $requete->rowCount() ?> genres</p>
 
-<table class="uk-table uk-table-stripped">
+<table class="movie">
     <thead>
         <tr>
-            <th>Libelle</th>          
+            <th class="column">Libelle</th>          
         </tr>
     </thead>
     <tbody>
         <?php
             foreach($requete->fetchAll() as $genre) { ?>
                 <tr>
-                <td><a href="index.php?action=detGenre&id=<?= $genre['id_genre']?>"><?=$genre["libelle"] ?></td>                   
+                <td class="lineMovie"><a href="index.php?action=detGenre&id=<?= $genre['id_genre']?>"><?=$genre["libelle"] ?></td>                   
                 </tr>
             <?php } ?>
     </tbody>
