@@ -86,14 +86,24 @@ class CinemaController {
     public function detActor($id) {
 
         $pdo = Connect::seConnecter();
+        $requeteActor = $pdo->prepare("
+        SELECT id_acteur, nom_personnage, prenom_personnage, date_naissance, sexe, photo_personnage
+        FROM acteur
+        NATURAL JOIN personnage
+        WHERE id_acteur = :id
+    ");
+
+        $requeteActor->execute(["id"=> $id]);
+
         $requete = $pdo->prepare("
-        SELECT titre, nom_personnage, prenom_personnage, sexe, date_naissance, id_acteur, photo_personnage
+        SELECT titre, nom_personnage, prenom_personnage, sexe, date_naissance, id_acteur, photo_personnage,affiche
         FROM jouer
         NATURAL JOIN personnage
         NATURAL JOIN acteur
         NATURAL JOIN film
         WHERE id_acteur = :id
         ");
+
         $requete->execute(["id"=> $id]);        
 
         require "view/detActor.php";
@@ -151,8 +161,17 @@ class CinemaController {
     public function detReal($id) {
 
         $pdo = Connect::seConnecter();
+        $requeteReal = $pdo->prepare("
+        SELECT id_realisateur, nom_personnage, prenom_personnage, date_naissance, sexe, photo_personnage
+        FROM realisateur
+        NATURAL JOIN personnage
+        WHERE id_realisateur = :id
+    ");
+
+        $requeteReal->execute(["id"=> $id]);
+
         $requete = $pdo->prepare("
-            SELECT titre, nom_personnage, prenom_personnage, sexe, date_naissance, id_realisateur, photo_personnage
+            SELECT titre, nom_personnage, prenom_personnage, sexe, date_naissance, id_realisateur, affiche
             FROM film
             NATURAL JOIN personnage
             NATURAL JOIN realisateur

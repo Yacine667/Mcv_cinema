@@ -1,12 +1,17 @@
-<?php ob_start();?>
+<?php ob_start();
+$detReal = $requeteReal->fetch();
+echo $detReal["date_naissance"]."<br>";
+echo $detReal["sexe"];
+?>
+<img height="200px" src="<?=$detReal["photo_personnage"] ?>" alt="">
+?>
 
 <p class="intro">Ce réalisateur a réalisé <?= $requete->rowCount() ?> films</p>
 
     <table class="movie">
         <thead>
             <tr>
-                <th class="column">Sexe</th>
-                <th class="column">Date de naissance</th>
+
                 <th class="column">Réalisations</th>
             </tr>
         </thead>
@@ -14,10 +19,9 @@
             <?php
                 foreach($requete->fetchAll() as $real) { ?>
                     <tr>
-                        <td class="lineMovie"><?=$real["sexe"] ?></td>
-                        <td class="lineMovie"><?=$real["date_naissance"] ?></td>
+
                         <td class="lineMovie"><?=$real["titre"] ?></td>
-                        <td class="lineMovie"><img src="<?=$real["photo_personnage"] ?>" alt=""></td>
+                        <td class="lineMovie"><img src="<?=$real["affiche"] ?>" alt=""></td>
                     </tr>
             <?php } ?>   
         </tbody>

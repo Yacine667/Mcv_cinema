@@ -1,21 +1,27 @@
-<?php ob_start(); ?>
+<?php ob_start();
+$detActor = $requeteActor->fetch();
+echo $detActor["date_naissance"]."<br>";
+echo $detActor["sexe"];
+?>
+<img height="200px" src="<?=$detActor["photo_personnage"] ?>" alt="">
 
 
+<p class="intro">Films dans lesquels il a joué :</h2>
 <table class="movie">
-    <thead>
+    <thead></thead>
         <tr>
-            <th class="column">Date de naissance</th>
-            <th class="column">Sexe</th>
+            <th class="column">Titre</th>
+            <th class="column">Affiche</th>
         </tr>
     </thead>
     <tbody>
         <?php
-            $film = $actor->fetch()?>?>
+            foreach($requete->fetchAll() as $actor) { ?>
                 <tr>
-                    <td class="lineMovie"><?= $actor["date_naissance"] ?></td>
-                    <td class="lineMovie"><?= $actor["sexe"] ?></td>
-                    <td class="lineMovie"><img src="<?=$actor["photo_personnage"] ?>" alt=""></td>
+                    <td class="lineMovie"><?= $actor["titre"] ?></td>
+                    <td class="lineMovie"><img src="<?=$actor["affiche"] ?>" alt=""></td>
                 </tr>
+            <?php } ?>
     </tbody>
 </table>
 
