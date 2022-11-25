@@ -15,14 +15,15 @@
         </thead>
         <tbody>
             <?php
-                foreach($requete->fetchAll() as $film) { ?>
+                
+                    $film = $requete->fetch()?>
                     <tr>
          
                         <td class="lineMovie"><?=$film["annee_sortie_fr"] ?></td>
                         <td class="lineMovie"><?=$film["duree"] ?></td>
                         <td class="lineMovie"><img src="<?=$film["affiche"] ?>" alt=""></td>
                     </tr>
-            <?php } ?>   
+            
         </tbody>
     </table>
 

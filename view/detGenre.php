@@ -13,6 +13,7 @@
                 foreach($requete->fetchAll() as $genre) { ?>
                     <tr>
                         <td class="lineMovie"><?=$genre["titre"] ?></td>
+                        <td class="lineMovie"><img src="<?=$genre["affiche"] ?>" alt=""></td>
                     </tr>
             <?php } ?>   
         </tbody>

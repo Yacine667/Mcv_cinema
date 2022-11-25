@@ -120,7 +120,7 @@ class CinemaController {
 
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
-            SELECT libelle, id_genre, titre
+            SELECT libelle, id_genre, titre,affiche
             FROM film
             NATURAL JOIN genre
             NATURAL JOIN posseder
