@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 use Controller\CinemaController;
 
 spl_autoload_register(function ($class_name){
@@ -58,6 +60,8 @@ if(isset($_GET["action"])) {
             $ctrlCinema->addFilm();
             break;
 
+        case 'updateLike':
+            $ctrlCinema->updateLike($id);
     }
 
 }

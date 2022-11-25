@@ -113,7 +113,7 @@ class CinemaController {
 
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
-            SELECT id_film, titre, duree, annee_sortie_fr, synopsis, nom_personnage, prenom_personnage, nom_role,affiche
+            SELECT id_film, titre, duree, annee_sortie_fr, synopsis, nom_personnage, prenom_personnage, nom_role,affiche, nb_like
             FROM jouer
             LEFT JOIN acteur ON jouer.id_acteur = acteur.id_acteur
             NATURAL JOIN film
@@ -285,6 +285,32 @@ class CinemaController {
         $requete = $pdo->prepare("INSERT INTO posseder (id_film,id_genre) 
         VALUES((SELECT MAX(id_film) FROM film),:genre)");
         $requete->execute(['genre' => $genre]);
+    }
+
+    public function updateLike($id)
+
+    {
+
+        $_SESSION['id_film'][] = $id;
+
+        $verifId = array_count_values($_SESSION['id_film']);
+
+        if ($verifId[$id] === 1) {
+
+            $pdo = Connect::seConnecter();
+
+            $requete = $pdo->prepare("UPDATE film SET nb_like = nb_like + 1 WHERE id_film = :id");
+
+            $requete->execute(['id' => $id]);
+
+            header("location:index.php?action=detFilm&id=$id");
+
+        } else {
+
+            header("location:index.php?action=detFilm&id=$id");
+
+        }
+
     }
 
 
