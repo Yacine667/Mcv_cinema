@@ -1,10 +1,15 @@
-<?php ob_start();
-$detActor = $requeteActor->fetch();
-echo $detActor["date_naissance"]."<br>";
-echo $detActor["sexe"];
-?>
-<img height="200px" src="<?=$detActor["photo_personnage"] ?>" alt="">
+<?php 
 
+ob_start();
+
+$detActor = $requeteActor->fetch();?>
+
+<p class="info"> <?=$detActor["date_naissance"];?>
+<p class="info"> <?=$detActor["sexe"];?>
+
+<div class="lineMovie">
+    <img src="<?=$detActor["photo_personnage"] ?>" alt="">
+    </div>
 
 <p class="intro">Films dans lesquels il a joué :</h2>
 <table class="movie">
@@ -18,8 +23,11 @@ echo $detActor["sexe"];
         <?php
             foreach($requete->fetchAll() as $actor) { ?>
                 <tr>
+
                     <td class="lineMovie"><a href="index.php?action=detFilm&id=<?= $actor['id_film']?>"><?= $actor["titre"] ?></a></td>
+
                     <td class="lineMovie"><img src="<?=$actor["affiche"] ?>" alt=""></td>
+
                 </tr>
             <?php } ?>
     </tbody>
@@ -29,6 +37,7 @@ echo $detActor["sexe"];
 
 $titre = $actor["nom_personnage"]." ".$actor["prenom_personnage"];
 $titre_secondaire = $actor["nom_personnage"]." ".$actor["prenom_personnage"];
+
 $contenu = ob_get_clean();
 
 require "view/template.php";

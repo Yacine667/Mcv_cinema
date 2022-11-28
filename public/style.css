@@ -2,15 +2,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Sono', sans-serif;
-    
+    font-family: 'Sono', sans-serif;    
 }
+
 
 body {
 
     background-image:url(img/1.jpg);
     background-size: cover;
 }
+
 
 h1 {
 
@@ -33,6 +34,7 @@ h1 {
     align-items: center;
 }
 
+
 .nav_toggler {
 
     position: fixed;
@@ -47,9 +49,9 @@ h1 {
     justify-content: center;
     align-items: center;
     background: transparent;
-    padding: 10px;
-    
+    padding: 10px;    
 }
+
 
 .nav_toggler1 {
 
@@ -68,6 +70,7 @@ h1 {
     padding: 10px;
 }
 
+
 .line {
 
     position: absolute;
@@ -79,16 +82,19 @@ h1 {
                 opacity 0.1s ease-out;                
 }
 
+
 .l1 {
 
     transform: translateY(-10px); 
     background: rgba(255, 200, 0, 0.817);
 }
 
+
 .l2 {
 
     background: rgb(255, 225, 0); 
 }
+
 
 .l3 {
 
@@ -96,10 +102,12 @@ h1 {
     background: rgba(255, 204, 0, 0.775);      
 }
 
+
 .nav_toggler.active .l1 {
 
     transform: translateY(0px) rotate(135deg);
 }
+
 
 .nav_toggler.active .l2 {
 
@@ -112,10 +120,12 @@ h1 {
     transform: translateY(0px) rotate(-135deg);
 }
 
+
 .nav_toggler1.active .l1 {
 
     transform: translateY(0px) rotate(135deg);
 }
+
 
 .nav_toggler1.active .l2 {
 
@@ -127,6 +137,7 @@ h1 {
 
     transform: translateY(0px) rotate(-135deg);
 }
+
 
 .nav1 {
 
@@ -147,10 +158,12 @@ h1 {
     -webkit-backdrop-filter: blur( 5.5px );    
 }
 
+
 .nav1.active {
 
     transform: translate(0);    
 }
+
 
 .nav1 a {
 
@@ -160,6 +173,7 @@ h1 {
     margin: 10px ;
     text-decoration: none;
 }
+
 
 .nav2 {
 
@@ -182,10 +196,12 @@ h1 {
     -webkit-backdrop-filter: blur( 5.5px );
 }
 
+
 .nav2.active {
 
     transform: translate(0)
 }
+
 
 .nav2 a {
 
@@ -196,14 +212,14 @@ h1 {
     text-decoration: none;
 }
 
+
 .column {
 
-    
     text-align: center;
     font-size: 1.4em;
     color: white;
-    
 }
+
 
 .lineMovie {
 
@@ -211,8 +227,8 @@ h1 {
     width: 20%;
     font-size: 1.3em;
     color: white;
-    
 }
+
 
 .lineMovie a {
 
@@ -222,6 +238,7 @@ h1 {
     font-weight: bolder;
 }
 
+
 .lineMovie img {
 
     height: 60%;
@@ -229,6 +246,7 @@ h1 {
     margin-bottom: 10%;
     border-radius: 10%;    
 }
+
 
 .intro {
 
@@ -238,12 +256,14 @@ h1 {
     font-size: 1.1em;
 }
 
+
 .titlePage {
 
     color: white;
     font-weight: bolder;
     font-size: 1.8em;
 }
+
 
 .movie {
 
@@ -254,6 +274,7 @@ h1 {
     -webkit-backdrop-filter: blur( 5.5px );
     border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
+
 
 .formCel {
 
@@ -269,14 +290,25 @@ h1 {
     color: white;
 }
 
+
 .select {
 
     width: 250px;
     border-radius: 10%;
 }
 
+
 .btn {
 
     margin-left: 200px;
 }
+
+
+.info {
+
+    color: white;
+    font-weight: bolder;
+    font-size: 1.1em;
+}
+
 

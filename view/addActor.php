@@ -1,7 +1,8 @@
 <?php
 
- ob_start()
-  ?>
+ob_start()
+
+?>
 
 <form action="index.php?action=addActor" method="POST">
 
@@ -45,6 +46,9 @@
 
 $titre = "Ajouter un acteur";
 $titre_secondaire = "Ajouter un acteur";
+
 $contenu = ob_get_clean();
+
 require "view/template.php";
+
 ?>

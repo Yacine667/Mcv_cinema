@@ -1,6 +1,7 @@
 <?php
 
 ob_start()
+
 ?>
 
 <form action="index.php?action=addFilm" method="POST">
@@ -68,6 +69,9 @@ ob_start()
 
 $titre = "Ajouter un film";
 $titre_secondaire = "Ajouter un film";
+
 $contenu = ob_get_clean();
+
 require "view/template.php";
+
 ?>

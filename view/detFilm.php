@@ -1,4 +1,8 @@
-<?php ob_start(); ?>
+<?php 
+
+ob_start()
+
+?>
 
 <p class="intro">Informations sur le film</p>
 
@@ -18,21 +22,26 @@
                 
                 $film = $requete->fetch()?>
                     <tr>
-         
+
                         <td class="lineMovie"><?=$film["annee_sortie_fr"] ?></td>
+
                         <td class="lineMovie"><?=$film["duree"] ?></td>
+
                         <td class="lineMovie"><img src="<?=$film["affiche"] ?>" alt=""></td>
+
                         <td><a href="index.php?action=updateLike&id=<?= $film['id_film']?>">Like<?=$film["nb_like"]?></a></td>
-                    </tr>
-            
+
+                    </tr>            
         </tbody>
     </table>
 
     <?php
   
-    $titre = $film["titre"];
-    $titre_secondaire = $film["titre"];
-    $contenu = ob_get_clean();
-     require "view/template.php";
+$titre = $film["titre"];
+$titre_secondaire = $film["titre"];
+
+$contenu = ob_get_clean();
+
+require "view/template.php";
 
     ?> 

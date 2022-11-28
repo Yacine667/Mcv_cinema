@@ -1,5 +1,7 @@
 <?php
- ob_start()
+
+ob_start()
+
 ?>
 
 <form action="index.php?action=addReal" method="POST">
@@ -46,6 +48,9 @@
 
 $titre = "Ajouter un realisateur";
 $titre_secondaire = "Ajouter un realisateur";
+
 $contenu = ob_get_clean();
+
 require "view/template.php";
+
 ?>

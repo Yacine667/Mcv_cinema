@@ -12,11 +12,11 @@ class CinemaController {
         $requete = $pdo->query("
             SELECT titre, annee_sortie_fr, id_film, affiche,nb_like
             FROM film
-        ");      
-
+        ");
 
         require "view/listFilms.php";
     }
+
 
     public function listGenre() {
 
@@ -24,11 +24,11 @@ class CinemaController {
         $requete = $pdo->query("
             SELECT libelle, id_genre
             FROM genre
-        ");        
-
+        ");
 
         require "view/listGenre.php";
     }
+
 
     public function listActors() {
 
@@ -39,9 +39,9 @@ class CinemaController {
         INNER JOIN acteur ON personnage.id_personnage = acteur.id_personnage
         ");        
 
-
         require "view/listActors.php";
     }
+
 
     public function listReal() {
 
@@ -52,9 +52,9 @@ class CinemaController {
         INNER JOIN realisateur ON personnage.id_personnage = realisateur.id_personnage
         ");        
 
-
         require "view/listReal.php";
     }
+
 
     public function listRealisateur() {
 
@@ -68,9 +68,9 @@ class CinemaController {
         SELECT libelle, id_genre
         FROM genre");        
 
-
         require "view/addFilm.php";
     }
+
 
     public function listRole() {
 
@@ -82,6 +82,7 @@ class CinemaController {
 
         require "view/listRole.php";
     }
+
 
     public function detActor($id) {
 
@@ -109,6 +110,7 @@ class CinemaController {
         require "view/detActor.php";
     }
 
+
     public function detFilm($id) {
 
         $pdo = Connect::seConnecter();
@@ -126,6 +128,7 @@ class CinemaController {
         require "view/detFilm.php";
     }
 
+
     public function detGenre($id) {
 
         $pdo = Connect::seConnecter();
@@ -141,11 +144,12 @@ class CinemaController {
         require "view/detGenre.php";
     }
 
+
     public function detRole($id) {
 
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
-            SELECT nom_role,nom_personnage, prenom_personnage, titre, id_acteur, photo_role
+            SELECT nom_role,nom_personnage, prenom_personnage, titre, id_acteur, photo_role, id_film
             FROM role
             NATURAL JOIN personnage
             NATURAL JOIN acteur
@@ -157,6 +161,7 @@ class CinemaController {
 
         require "view/detRole.php";
     }
+
 
     public function detReal($id) {
 
@@ -182,13 +187,15 @@ class CinemaController {
         require "view/detReal.php";
     }
 
-    public function formAddActor()
-    {
+
+    public function formAddActor() {
+
         require 'view/addActor.php';
     }
 
-    public function addPersonnage()
-    {
+
+    public function addPersonnage() {
+
         $nom_personnage = filter_input(INPUT_POST,'nom_personnage',FILTER_SANITIZE_SPECIAL_CHARS);
 
         $prenom_personnage = filter_input(INPUT_POST,'prenom_personnage',FILTER_SANITIZE_SPECIAL_CHARS);
@@ -205,11 +212,11 @@ class CinemaController {
             "date_naissance" => $date_naissance,
             "sexe" => $sexe
         ]);
-
     }
 
-    public function addActor()
-    {
+
+    public function addActor() {
+
         $pdo = Connect::seConnecter();
         $requetePersonnage = $pdo->query("INSERT INTO acteur(id_personnage) 
         SELECT MAX(id_personnage) FROM personnage");
@@ -217,13 +224,14 @@ class CinemaController {
         header("location:index.php?action=formAddActor");
     }
 
-    public function formAddReal()
-    {
+
+    public function formAddReal() {
         require 'view/addReal.php';
     }
 
-    public function addReal()
-    {
+
+    public function addReal() {
+
         $pdo = Connect::seConnecter();
         $requetePersonnage = $pdo->query("INSERT INTO realisateur(id_personnage) 
         SELECT MAX(id_personnage) FROM personnage");
@@ -231,16 +239,16 @@ class CinemaController {
         header("location:index.php?action=formAddReal");
     }
 
-    public function formAddGenre()
-    {
+
+    public function formAddGenre() {
+        
         require 'view/addGenre.php';
     }
 
-    public function addGenre()
-    {
 
+    public function addGenre() {
+        
         $libelle = filter_input (INPUT_POST,'libelle',FILTER_SANITIZE_SPECIAL_CHARS);
-
         $pdo = Connect::seConnecter();
         $requeteGenre = $pdo->prepare("INSERT INTO genre (libelle) VALUES(:libelle)");
         $requeteGenre->execute(['libelle' => $libelle]);
@@ -248,13 +256,14 @@ class CinemaController {
         header("location:index.php?action=formAddGenre");
     }
 
-    public function formAddFilm()
-    {
+
+    public function formAddFilm() {
+
         require 'view/addFilm.php';
     }
 
-    public function addFilm()
-    {
+
+    public function addFilm() {
         
         $titre = filter_input(INPUT_POST,'titre',FILTER_SANITIZE_SPECIAL_CHARS);
         
@@ -279,17 +288,16 @@ class CinemaController {
         
         header("location:index.php?action=formAddFilm");
     }
-    public function choixGenre($genre)
-    {
+
+
+    public function choixGenre($genre) {
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("INSERT INTO posseder (id_film,id_genre) 
         VALUES((SELECT MAX(id_film) FROM film),:genre)");
         $requete->execute(['genre' => $genre]);
     }
 
-    public function updateLike($id)
-
-    {
+    public function updateLike($id) {
 
         $_SESSION['id_film'][] = $id;
 
@@ -312,9 +320,7 @@ class CinemaController {
             header("location:index.php?action=detFilm&id=$id");
 
         }
-
     }
-
 
 }
 

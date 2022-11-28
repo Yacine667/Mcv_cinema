@@ -1,4 +1,8 @@
-<?php ob_start(); ?>
+<?php 
+
+ob_start()
+
+?>
 
 <p class="intro">Il y a <?= $requete->rowCount() ?> films</p>
 
@@ -14,9 +18,11 @@
         <?php
             foreach($requete->fetchAll() as $film) { ?>
         <tr>
-            
+
                 <td class="lineMovie"><a href="index.php?action=detFilm&id=<?= $film['id_film']?>"><?=$film["titre"] ?></a></td>
+
                 <td class="lineMovie"><?= $film["annee_sortie_fr"] ?></td>
+
                 <td class="lineMovie"><img src="<?=$film["affiche"] ?>" alt=""></td>
             
         </tr>
@@ -30,6 +36,7 @@
 
 $titre = "Liste des films";
 $titre_secondaire = "Liste des films";
+
 $contenu = ob_get_clean();
 
 require "view/template.php";

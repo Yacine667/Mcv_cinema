@@ -1,4 +1,8 @@
-<?php ob_start();?>
+<?php 
+
+ob_start()
+
+?>
 
 <p class="intro">Ce role a été joué par <?= $requete->rowCount() ?> acteurs</p>
 
@@ -14,10 +18,15 @@
             <?php
                 foreach($requete->fetchAll() as $role) { ?>
                     <tr>
-                        <td class="lineMovie"><?=$role["titre"] ?></td>
-                        <td class="lineMovie"><?=$role["nom_personnage"] ?></td>
-                        <td class="lineMovie"><?=$role["prenom_personnage"] ?></td>
+                        
+                        <td class="lineMovie"><a href="index.php?action=detFilm&id=<?= $role['id_film']?>"><?=$role["titre"] ?></a></td>
+
+                        <td class="lineMovie"><a href="index.php?action=detActor&id=<?= $role['id_acteur']?>"><?=$role["nom_personnage"] ?></a></td>
+
+                        <td class="lineMovie"><a href="index.php?action=detActor&id=<?= $role['id_acteur']?>"><?=$role["prenom_personnage"] ?></a></td>
+
                         <td class="lineMovie"><img src="<?=$role["photo_role"] ?>" alt=""></td>
+
                     </tr>
             <?php } ?>   
         </tbody>
