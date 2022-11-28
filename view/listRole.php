@@ -12,7 +12,8 @@
         <?php
             foreach($requete->fetchAll() as $role) { ?>
                 <tr>
-                <td class="lineMovie"><a href="index.php?action=detRole&id=<?= $role['id_role']?>"><?=$role["nom_role"] ?></td>                  
+                <td class="lineMovie"><a href="index.php?action=detRole&id=<?= $role['id_role']?>"><?=$role["nom_role"] ?></td>    
+                <td class="lineMovie"><img src="<?=$role["photo_role"] ?>" alt=""></td>              
                 </tr>
             <?php } ?>
     </tbody>

@@ -12,7 +12,7 @@
             <?php
                 foreach($requete->fetchAll() as $genre) { ?>
                     <tr>
-                        <td class="lineMovie"><?=$genre["titre"] ?></td>
+                        <td class="lineMovie"><a href="index.php?action=detFilm&id=<?= $genre['id_film']?>"><?=$genre["titre"] ?></a></td>
                         <td class="lineMovie"><img src="<?=$genre["affiche"] ?>" alt=""></td>
                     </tr>
             <?php } ?>   

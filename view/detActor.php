@@ -18,7 +18,7 @@ echo $detActor["sexe"];
         <?php
             foreach($requete->fetchAll() as $actor) { ?>
                 <tr>
-                    <td class="lineMovie"><?= $actor["titre"] ?></td>
+                    <td class="lineMovie"><a href="index.php?action=detFilm&id=<?= $actor['id_film']?>"><?= $actor["titre"] ?></a></td>
                     <td class="lineMovie"><img src="<?=$actor["affiche"] ?>" alt=""></td>
                 </tr>
             <?php } ?>
