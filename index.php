@@ -62,6 +62,7 @@ if(isset($_GET["action"])) {
 
         case 'updateLike':
             $ctrlCinema->updateLike($id);
+            break;
     }
 
 }

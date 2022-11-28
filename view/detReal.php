@@ -4,7 +4,6 @@ echo $detReal["date_naissance"]."<br>";
 echo $detReal["sexe"];
 ?>
 <img height="200px" src="<?=$detReal["photo_personnage"] ?>" alt="">
-?>
 
 <p class="intro">Ce réalisateur a réalisé <?= $requete->rowCount() ?> films</p>
 

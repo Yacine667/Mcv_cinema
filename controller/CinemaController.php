@@ -10,7 +10,7 @@ class CinemaController {
 
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
-            SELECT titre, annee_sortie_fr, id_film, affiche
+            SELECT titre, annee_sortie_fr, id_film, affiche,nb_like
             FROM film
         ");      
 
@@ -297,16 +297,18 @@ class CinemaController {
 
         if ($verifId[$id] === 1) {
 
+            
             $pdo = Connect::seConnecter();
 
             $requete = $pdo->prepare("UPDATE film SET nb_like = nb_like + 1 WHERE id_film = :id");
 
             $requete->execute(['id' => $id]);
-
+            //var_dump($requete);die;
             header("location:index.php?action=detFilm&id=$id");
 
         } else {
 
+            //var_dump($verifId);die;
             header("location:index.php?action=detFilm&id=$id");
 
         }
